@@ -25,7 +25,7 @@
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
                         <img src="{{ asset('/') }}assets/img/user.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
@@ -128,10 +128,17 @@
     </aside>
 
     <main id="main" class="main">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <p><strong>Error:</strong> Terdapat kesalahan pada formulir.</p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @yield('content')
-
-
-
     </main>
 
 

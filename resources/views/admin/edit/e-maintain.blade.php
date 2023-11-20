@@ -21,23 +21,25 @@
                         <h5 class="card-title">Data Tindakan</h5>
 
 
-                        <form>
+                        <form method="post" action="{{ route('maintain-put', ['id'=>$maintain->id]) }}">
+                            @csrf
+                            @method('put')
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name" value="{{$maintain->name}}">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control">
+                                    <input type="number" class="form-control" value="{{$maintain->price}}" name="price">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Satuan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="{{$maintain->unit}}" name="unit">
                                 </div>
                             </div>
                             <div class="col-12" style="text-align: end; margin-top: 20px">

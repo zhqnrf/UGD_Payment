@@ -25,7 +25,7 @@
                                                 <h1 style="font-weight: bold; margin-top: 20px">Selamat Datang</h1>
                                                 <h4>Di UGD Payment Puskemas Ketrowonojoyo</h4>
                                                 <span></span>
-                                                <p class="btn btn-primary mt-2">Admin</p>
+                                                <p class="btn btn-primary mt-2">{{Auth::user()->name}}</p>
                                             </div>
 
                                             <div class="col-xl-5 col-sm-6">

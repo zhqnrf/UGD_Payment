@@ -23,5 +23,6 @@
     <link href="{{ asset('/') }}assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <link href="{{ asset('/') }}assets/css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>

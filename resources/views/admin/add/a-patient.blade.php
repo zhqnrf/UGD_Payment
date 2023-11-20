@@ -21,28 +21,29 @@
                         <h5 class="card-title">Data Pasien</h5>
 
 
-                        <form>
+                        <form method="POST" action="{{ route('patient-post',) }}">
+                            @csrf
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" name="date_of_birth">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="address">
                                 </div>
                             </div>
 
                             <div class="col-12" style="text-align: end; margin-top: 20px">
-                                <button type="submit" class="btn btn-secondary">Kembali</button>
+                                <a href="{{ route('patient') }}" class="btn btn-secondary">Kembali</a>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
 

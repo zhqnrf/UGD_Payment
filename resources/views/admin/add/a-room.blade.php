@@ -21,22 +21,24 @@
                         <h5 class="card-title">Data Kamar</h5>
 
 
-                        <form>
+                        <form action="{{ route('room-post') }}" method="POST">
+                            @csrf
+                            @method('post')
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control">
+                                    <input type="number" class="form-control" name="price">
                                 </div>
                             </div>
 
                             <div class="col-12" style="text-align: end; margin-top: 20px">
-                                <button type="submit" class="btn btn-secondary">Kembali</button>
+                                <a href="{{ route('room' ) }}" class="btn btn-secondary">Kembali</a>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
 

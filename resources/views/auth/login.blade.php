@@ -86,8 +86,8 @@
                                         <p class="text-center small">Puskemas Ketrowonojoyo</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate>
-
+                                    <form {{ route('login', ['id'=>1]) }} method="POST" class="row g-3 needs-validation" novalidate>
+                                        @csrf
                                         <div class="col-12">
                                             <label class="form-label">Email</label>
                                             <div class="input-group has-validation">
@@ -109,14 +109,10 @@
                                                 </a>
                                             </div>
                                         </div>
-
-
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Login</button>
                                         </div>
-
                                     </form>
-
                                 </div>
                             </div>
 

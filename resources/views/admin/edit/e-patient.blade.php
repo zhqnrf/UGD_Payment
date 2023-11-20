@@ -20,25 +20,26 @@
                     <div class="card-body">
                         <h5 class="card-title">Data Pasien</h5>
 
-
-                        <form>
+                        <form method="POST" action="{{ route('patient-put', ['id'=>$patient->id]) }}"> 
+                            @csrf
+                            @method('put')
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="{{ $patient->name }}" name="name">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" value="{{ $patient->date_of_birth }}" name="date_of_birth">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" value="{{ $patient->address }}" name="address">
                                 </div>
                             </div>
 

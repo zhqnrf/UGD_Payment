@@ -33,17 +33,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Kelas 1</td>
-                                    <td>3.000.000</td>
-                                    <td><a href="{{ route('e-room') }}"><button type="button"
-                                                class="btn btn-primary mb-3"><i
-                                                    class="bi bi-pencil-square"></i></button></a>
-                                        <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
-                                            data-bs-target="#delete-modal"><i class="bi bi-trash2"></i></button>
-                                    </td>
-                                </tr>
+                                @foreach ($rooms as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>Rp.{{ number_format($item->price, 0, ',', '.') }}</td>
+                                        <td><a href="{{ route('e-room', ['id' => $item->id]) }}"><button type="button"
+                                                    class="btn btn-primary mb-3"><i
+                                                        class="bi bi-pencil-square"></i></button></a>
+                                            <button type="button" class="btn btn-danger mb-3 delete-btn"
+                                                data-bs-toggle="modal" data-bs-target="#delete-modal"
+                                                data-id="{{ $item->id }}" data-name="{{ $item->name }}"
+                                                data-price="{{ $item->price }}">
+                                                <i class="bi bi-trash2"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
 
@@ -65,27 +71,62 @@
                     <h5 class="modal-title">Yakin Menghapus ?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr class="table-info">
-                                <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
+                <form action="{{ route('room-delete') }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <input type="text" id="id_room" hidden name="id">
+                    <div class="modal-body">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr class="table-info">
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Harga</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-danger">
-                                <td scope="row">Kelas 1</td>
-                                <td>3.000.000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Ya</button>
-                </div>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-danger">
+                                    <td scope="row"><span id="name"></span></td>
+                                    <td><span id="price"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Ya</button>
+                    </div>
+                </form>
             </div>
         </div>
-</div @endsection
+
+    </div>
+    <script>
+        function formatRupiah(angka) {
+            var numberString = angka.toString().replace(/[^,\d]/g, '');
+            var split = numberString.split(',');
+            var sisa = split[0].length % 3;
+            var rupiah = split[0].substr(0, sisa);
+            var ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                var separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] !== undefined ? rupiah + ',' + split[1] : rupiah;
+            return 'Rp ' + rupiah;
+        }
+
+        $('.delete-btn').on('click', function(event) {
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var price = $(this).data('price');
+            console.log(price);
+            $('#name').text(name);
+            $('#price').text(formatRupiah(price));
+            $('#id_room').val(id);
+
+        });
+    </script>
+@endsection

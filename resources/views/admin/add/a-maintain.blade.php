@@ -21,23 +21,25 @@
                         <h5 class="card-title">Data Tindakan</h5>
 
 
-                        <form>
+                        <form action="{{ route('maintain-post') }}" method="post">
+                            @csrf
+                            @method('post')
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Harga</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control">
+                                    <input type="number" class="form-control" name="price">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Satuan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="unit">
                                 </div>
                             </div>
                             <div class="col-12" style="text-align: end; margin-top: 20px">

@@ -11,13 +11,14 @@
                     </div>
                     <div class="card-body pt-3">
                         <div class="basic-form">
-                            <form action="" method="post" class="form-valide-with-icon needs-validation" novalidate="">
-
-
+                            <form action="{{ route('forgotpassword-put') }}" method="post"
+                                class="form-valide-with-icon needs-validation" novalidate="">
+                                @method('put')
+                                @csrf
                                 <div class="mb-3">
                                     <label for="yourPassword" class="form-label">Password Lama</label>
                                     <div class="input-group" id="">
-                                        <input type="password" class="form-control border-end-0" name="password"
+                                        <input type="password" class="form-control border-end-0" name="old_password"
                                             id="inputChoosePassword" placeholder="Masukkan Password Lama Anda">
                                         <a href="javascript:;" class="input-group-text bg-primary" id="show-hide-password">
                                             <i class="bi bi-eye" style="color: white"></i>
@@ -28,7 +29,7 @@
                                 <div class="mb-3">
                                     <label for="yourPassword" class="form-label">Password Baru</label>
                                     <div class="input-group" id="">
-                                        <input type="password" class="form-control border-end-0" name="password"
+                                        <input type="password" class="form-control border-end-0" name="new_password"
                                             id="inputChoosePassword" placeholder="Masukkan Password Baru Anda">
                                         <a href="javascript:;" class="input-group-text bg-primary" id="show-hide-password">
                                             <i class="bi bi-eye" style="color: white"></i>
@@ -40,7 +41,7 @@
                                 <div class="mb-3">
                                     <label for="yourPassword" class="form-label">Ulangi Password Baru</label>
                                     <div class="input-group" id="">
-                                        <input type="password" class="form-control border-end-0" name="password"
+                                        <input type="password" class="form-control border-end-0" name="confirm_password"
                                             id="inputChoosePassword" placeholder="Ulangi Password Baru Anda">
                                         <a href="javascript:;" class="input-group-text bg-primary" id="show-hide-password">
                                             <i class="bi bi-eye" style="color: white"></i>

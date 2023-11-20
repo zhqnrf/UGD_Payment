@@ -34,19 +34,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Masino</td>
-                                    <td>12 Juli 2003</td>
-                                    <td>Pacitan, Krajan</td>
-
-                                    <td> <a href="{{ route('e-patient') }}"><button type="button"
-                                                class="btn btn-primary mb-3"><i
-                                                    class="bi bi-pencil-square"></i></button></a>
-                                        <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
-                                            data-bs-target="#delete-modal"><i class="bi bi-trash2"></i></button>
-                                    </td>
-                                </tr>
+                                @foreach ($patients as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->date_of_birth }}</td>
+                                        <td>{{ $item->address }}</td>
+                                        <td> <a href="{{ route('e-patient', ['id' => $item->id]) }}"><button type="button"
+                                                    class="btn btn-primary mb-3"><i
+                                                        class="bi bi-pencil-square"></i></button></a>
+                                            <button type="button" class="btn btn-danger mb-3 delete-btn"
+                                                data-bs-toggle="modal" data-bs-target="#delete-modal"
+                                                data-id="{{ $item->id }}" data-name={{ $item->name }}
+                                                data-address={{ $item->address }}>
+                                                <i class="bi bi-trash2"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
 
@@ -68,27 +73,44 @@
                     <h5 class="modal-title">Yakin Menghapus ?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr class="table-info">
-                                <th scope="col">Nama</th>
-                                <th scope="col">Alamat</th>
+                <form action="{{ route('patient-delete') }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="text" name="id" id="id_patient" hidden>
+                    <div class="modal-body">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr class="table-info">
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Alamat</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-danger">
-                                <td scope="row">Masino</td>
-                                <td>Pacitan, Krajan</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Ya</button>
-                </div>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-danger">
+                                    <td scope="row"><span id="name"></span></td>
+                                    <td><span id="address"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Ya</button>
+                    </div>
+                </form>
             </div>
         </div>
-</div @endsection
+    </div>
+    <script>
+        $('.delete-btn').on('click', function(event) {
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var address = $(this).data('address');
+            $('#name').text(name);
+            $('#address').text(address);
+            $('#id_patient').val(id);
+
+        });
+    </script>
+@endsection
