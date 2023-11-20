@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('room_detail', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('room_id')->references('id')->on('room')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->integer('amount')->default(0);
+            $table->integer('qty')->default(0);
             $table->foreignUuid('ugd_payment_id')->references('id')->on('ugd_payment')->cascadeOnDelete()->cascadeOnUpdate();
             $table->bigInteger('sub_total')->default(0);
             $table->timestamps();
