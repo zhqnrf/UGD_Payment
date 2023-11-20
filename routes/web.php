@@ -23,10 +23,18 @@ Route::get('statuspay', function () {
     return view('admin.status');
 })->name('statuspay');
 
+Route::get('info-patient', function () {
+    return view('admin.info-patient');
+})->name('info-patient');
 
 Route::get('create/pay', function () {
     return view('admin.add.a-pay');
 })->name('a-pay');
+
+
+Route::get('edit/pay', function () {
+    return view('admin.edit.e-pay');
+})->name('e-pay');
 
 Route::get('history', function () {
     return view('admin.history-pay');

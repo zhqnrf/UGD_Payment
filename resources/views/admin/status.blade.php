@@ -12,6 +12,8 @@
             </ol>
         </nav>
     </div>
+
+
     <section class="section dashboard">
         <div class="row">
             <div class="col-xxl-12 col-md-12">
@@ -42,8 +44,9 @@
 
                                         <button type="button" class="btn btn-warning mb-3"><i class="bi bi-printer"></i>
                                             Cetak</button>
-                                        <button type="button" class="btn btn-primary mb-3"><i
-                                                class="bi bi-pencil-square"></i> Edit</button>
+                                        <a href="{{ route('e-pay') }}"><button type="button"
+                                                class="btn btn-primary mb-3"><i class="bi bi-pencil-square"></i>
+                                                Edit</button></a>
                                         <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
                                             data-bs-target="#delete-modal"><i class="bi bi-trash2"></i>Hapus</button>
                                     </td>
@@ -59,8 +62,9 @@
 
                                         <button type="button" class="btn btn-warning mb-3"><i class="bi bi-printer"></i>
                                             Cetak</button>
-                                        <button type="button" class="btn btn-primary mb-3"><i
-                                                class="bi bi-pencil-square"></i> Edit</button>
+                                        <a href="{{ route('e-pay') }}"><button type="button"
+                                                class="btn btn-primary mb-3"><i class="bi bi-pencil-square"></i>
+                                                Edit</button></a>
                                         <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
                                             data-bs-target="#delete-modal"><i class="bi bi-trash2"></i>Hapus</button>
                                     </td>

@@ -23,5 +23,5 @@
     <link href="{{ asset('/') }}assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <link href="{{ asset('/') }}assets/css/style.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/toastr/css/toastr.min.css">
 </head>

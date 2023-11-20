@@ -26,8 +26,8 @@
                                         <b>N</b>ama Pasien
                                     </th>
                                     <th>No Regestrasi</th>
-                                    <th>Hari Rawat</th>
-                                    <th>Lihat</th>
+                                    <th>Tanggal Dibuat</th>
+                                    <th>Informasi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,9 +35,10 @@
                                     <td>1</td>
                                     <td>Masino</td>
                                     <td>10.09.30</td>
-                                    <td>2 Hari</td>
-                                    <td><button type="button" class="btn btn-info"><i
-                                                class="bi bi-info-circle"></i></button>
+                                    <td>2 Januari 2012</td>
+                                    <td>
+                                        <a href="info-patient"><button type="button" class="btn btn-info"><i
+                                                    class="bi bi-info-circle"></i></button></a>
 
                                     </td>
                                 </tr>
