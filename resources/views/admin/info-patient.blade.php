@@ -199,8 +199,8 @@
 
                     <div class="row">
                         <div class="col-12 mb-3 text-center mt-2">
-                            <span class="badge bg-dark " id="tambahLain"><i class="bi bi-calendar-fill me-1"></i>Tanggal
-                                Data dibuat : 15 Maret 2023</span>
+                            <span class="badge bg-dark " id="tambahLain"><i class="bi bi-person me-1"></i>Penanggung Jawab
+                                : Mariyadi</span>
 
                         </div>
                     </div>

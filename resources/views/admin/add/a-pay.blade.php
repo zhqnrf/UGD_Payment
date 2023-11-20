@@ -165,7 +165,7 @@
                         <form class="m-3">
 
                             <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">No Regestrasi</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">No Registrasi</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" value="" disabled=""
                                         placeholder="No Regestrasi">

@@ -31,7 +31,6 @@ Route::get('create/pay', function () {
     return view('admin.add.a-pay');
 })->name('a-pay');
 
-
 Route::get('edit/pay', function () {
     return view('admin.edit.e-pay');
 })->name('e-pay');
@@ -43,8 +42,6 @@ Route::get('history', function () {
 Route::get('patient', function () {
     return view('admin.master.patient');
 })->name('patient');
-
-
 
 Route::get('edit/patient', function () {
     return view('admin.edit.e-patient');
@@ -79,3 +76,17 @@ Route::get('create/room', function () {
 Route::get('edit/room', function () {
     return view('admin.edit.e-room');
 })->name('e-room');
+
+
+
+Route::get('chairmain', function () {
+    return view('admin.master.chairmain');
+})->name('chairmain');
+
+Route::get('edit/chairmain', function () {
+    return view('admin.edit.e-chairmain');
+})->name('e-chairmain');
+
+Route::get('create/chairmain', function () {
+    return view('admin.add.a-chairmain');
+})->name('a-chairmain');

@@ -79,6 +79,11 @@
                 </a>
                 <ul id="tables-master" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
+                        <a href="{{ route('chairmain') }}">
+                            <i class="bi bi-circle"></i><span>Penanggung Jawab</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('patient') }}">
                             <i class="bi bi-circle"></i><span>Pasien</span>
                         </a>

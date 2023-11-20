@@ -149,7 +149,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="">Home</a></li>
                 <li class="breadcrumb-item"><a href="">Pembayaran</a></li>
-                <li class="breadcrumb-item active">Tambah Pembayaran</li>
+                <li class="breadcrumb-item active">Edit Pembayaran</li>
             </ol>
         </nav>
     </div>
@@ -165,7 +165,7 @@
                         <form class="m-3">
 
                             <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">No Regestrasi</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">No Registrasi</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" value="" disabled=""
                                         placeholder="No Regestrasi">
@@ -175,7 +175,8 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Nama Pasien">
+                                    <input type="text" class="form-control" value="" disabled=""
+                                        placeholder="Nama Pasien">
                                 </div>
                             </div>
 
@@ -183,14 +184,16 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Alamat Pasien">
+                                    <input type="text" class="form-control" value="" disabled=""
+                                        placeholder="Alamat">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Umur</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="Umur Pasien">
+                                    <input type="text" class="form-control" value="" disabled=""
+                                        placeholder="Umur">
                                 </div>
                             </div>
 
@@ -249,7 +252,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="js-example-category" style="width: 100%" name="category_id">
+                                    <select class="js-example-room" style="width: 100%" name="room_id">
 
                                     </select>
                                 </div>
@@ -464,6 +467,7 @@
                                     <input type="number" class="form-control" placeholder="Jumlah">
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
@@ -484,48 +488,50 @@
                                 </div>
                             </div>
 
+
                             <div class="row mb-0">
                                 <div class="row">
-                                    <label for="inputText" class="col-sm-12 col-form-label fw-bold "
+                                    <label for="inputText" class="col-sm-12 col-form-label fw-bold"
                                         style="font-size: 20px">Lain - Lain</label>
                                     <div class="row m-3 mt-0 me-5" style="background-color:white; border-radius: 5px">
-
                                         <div class="row" id="item-lain">
                                             <div class="row">
                                                 <div class="form-check col-12">
                                                     <input class="form-check-input" style="margin-top: 12px;"
                                                         type="checkbox" id="gridCheck1">
-                                                    <input placeholder="Tambah Nama" value=""
-                                                        style="padding-top: 10px;  background-color: transparent; border: transparent;"
-                                                        onfocus="this.style.outline='none'; ">
+                                                    <input placeholder="Edit Nama" value=""
+                                                        style="padding-top: 10px; background-color: transparent; border: transparent;"
+                                                        onfocus="this.style.outline='none';">
 
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3 mb-3">
+                                            <div class="col-sm-2 mb-3">
                                                 <input type="number" class="form-control" placeholder="Σ">
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" class="form-control" placeholder="Harga"
-                                                    value="10000">
+                                                    value="">
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="text" class="form-control" placeholder="Satuan"
-                                                    value="kali">
+                                                    value="">
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" class="form-control" placeholder="Jumlah">
                                             </div>
+                                            <div class="col-sm-1 mb-3 mt-2">
+                                                <i class="bi bi-x-circle remove-item text-danger"></i>
+
+                                            </div>
                                         </div>
-
-
                                     </div>
 
-
-
-
+                                    <div class="col-12 mb-3">
+                                        <span class="badge bg-primary" id="tambahLain"><i
+                                                class="bi bi-plus-circle me-1"></i> Tambah Lain Lain</span>
+                                    </div>
                                 </div>
                             </div>
-
 
                             <hr class="m-0">
                             <div class="row">
@@ -544,7 +550,8 @@
                                     Kembali</button>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-collection me-1"></i>
                                     Simpan</button>
-
+                                <button type="button" class="btn btn-warning"><i class="bi bi-printer me-1"></i>
+                                    Cetak</button>
                             </div>
 
                         </form>
@@ -557,17 +564,45 @@
     </section>
 
 
+
+
+
+
+
     <script>
         $(document).ready(function() {
-
             $("#tambahLain").click(function() {
                 var newItemLain = $("#item-lain").clone();
                 newItemLain.find('input').val('');
+                newItemLain.find('.remove-item').show();
                 $("#item-lain").after(newItemLain);
+            });
+
+
+            $(document).on('click', '.remove-item', function() {
+                $(this).closest('.row#item-lain').remove();
+            });
+
+            $("#myForm").submit(function(event) {
+                event.preventDefault();
+
+                var formData = [];
+                $(".row#item-lain").each(function() {
+                    var data = {
+                        checkbox: $(this).find('.form-check-input').prop('checked'),
+                        input1: $(this).find('input:eq(0)').val(),
+                        input2: $(this).find('input:eq(1)').val(),
+                        input3: $(this).find('input:eq(2)').val(),
+                        input4: $(this).find('input:eq(3)').val(),
+                        input5: $(this).find('input:eq(4)').val(),
+                    };
+                    formData.push(data);
+                });
+
+                console.log(formData);
             });
         });
     </script>
-
 
 
     <script>
@@ -589,8 +624,23 @@
     <script>
         $(document).ready(function() {
 
-            $(".js-example-category").select2({
+            $(".js-example-room").select2({
                 placeholder: "Pilih"
+            }).on('change', function(e) {
+                if ($(this).val() && $(this).val().length) {
+                    $(this).next('.select2-container')
+                        .find('li.select2-search--inline input.select2-search__field').attr('placeholder',
+                            'Pilih Kamar');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            $(".js-example-name").select2({
+                placeholder: "Pilih Pasien"
             }).on('change', function(e) {
                 if ($(this).val() && $(this).val().length) {
                     $(this).next('.select2-container')
