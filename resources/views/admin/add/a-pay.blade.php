@@ -1,145 +1,19 @@
 @extends('layouts.app')
 <title>Tambah Pembayaran - UGD Payment Puskesmas Ketrowonojoyo</title>
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/zh-TW.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <style>
-        .select2-selection {
-            font-size: 15px;
-            border: solid 1px #dee2e6 !important;
-            padding-left: 4px;
-        }
-
-        .select2-selection--multiple {
-            height: 80px !important;
-            padding-bottom: 20px;
-
-        }
-
-        .select2-selection {
-            height: 37px !important;
-
-        }
-
-        .select2-selection__choice {
-            height: 30px;
-            line-height: 30px;
-            padding-right: 16px !important;
-            padding-left: 16px !important;
-            background-color: #0d6efd !important;
-            color: #eee !important;
-            border: none !important;
-            border-radius: 3px !important;
-
-        }
-
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-            color: white;
-        }
-
-        .select2-selection__choice__remove {
-            float: right;
-            text-decoration-color: white;
-            border-color: white;
-            margin-right: 0;
-            margin-left: 2px;
-        }
-
-        .select2-search--inline .select2-search__field {
-            line-height: 40px;
-            color: white;
-            width: 100% !important;
-        }
-
-        .select2-container:hover,
-        .select2-container:focus,
-        .select2-container:active,
-        .select2-selection:hover,
-        .select2-selection:focus,
-        .select2-selection:active {
-            outline-color: transparent;
-
-            outline-style: none;
-            /* color: var(--primary); */
-        }
-
-        .select2-results__options li {
-            display: block;
-
-        }
-
-        .select2-container .select2-search--inline .select2-search__field {
+        .select2-container .select2-selection--single {
             box-sizing: border-box;
-            border: none;
-            font-size: 100%;
-            margin-top: 0px;
-            padding: 0;
-        }
-
-        .select2-selection__rendered {
-            transform: translateY(2px);
-        }
-
-        .select2-selection__arrow {
-            display: none;
-        }
-
-        .select2-results__option--highlighted {
-            background-color: #dee2e6 !important;
-            color: black !important;
-        }
-
-        .select2-dropdown {
-            border-radius: 0 !important;
-            box-shadow: 0px 3px 3px 0 #dee2e6 !important;
-            border: none !important;
-            margin-top: 4px !important;
-            /* width: 366px !important; */
-        }
-
-        .select2-results__option {
-
-            font-size: 13px;
-            line-height: 24px !important;
-            vertical-align: middle !important;
-            padding-left: 8px !important;
-        }
-
-        .select2-results__option[aria-selected="true"] {
-            background-color: #eee !important;
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            color: black;
-            padding-top: 3px;
-            line-height: 28px;
-        }
-
-        .select2-search__field {
-
-            color: black;
-            font-size: 13px;
-            padding-left: 8px !important;
-            border-color: #6e6e6e !important;
-        }
-
-        .select2-selection__placeholder {
-            color: ##6e6e6e !important;
+            cursor: pointer;
+            display: block;
+            height: 40px;
+            user-select: none;
+            padding-top: 5px;
+            -webkit-user-select: none;
         }
     </style>
-
-
-
     <div class="pagetitle">
         <h1><i class="bi bi-cast me-2"></i>Tambah Pembayaran</h1>
         <nav>
@@ -150,6 +24,7 @@
             </ol>
         </nav>
     </div>
+
 
 
     <section class="section">
@@ -173,12 +48,13 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <select class="js-example-name" style="width: 100%" name="name_id">
+                                    <select class="js-example-name" style="width: 100%; height:100% ;">
                                         @foreach ($patients as $item)
                                             <option value="{{ $item->id }}"><span
                                                     class="text-center">{{ $item->name }}</span></option>
                                         @endforeach
                                     </select>
+
                                 </div>
                             </div>
                             <input type="text" name="id_user" hidden id="id_user">
@@ -246,7 +122,6 @@
                                         value="0">
                                 </div>
                             </div>
-
 
                             <div class="row mb-3">
                                 <div class="row">
@@ -518,8 +393,7 @@
                                         <div class="row" id="item-lain">
                                             <div class="row">
                                                 <div class="form-check col-12">
-                                                    <input class="form-check-input" style="margin-top: 12px;"
-                                                        type="checkbox" id="gridCheck1">
+
                                                     <input placeholder="Tambah Nama" value=""
                                                         style="padding-top: 10px; background-color: transparent; border: transparent;"
                                                         onfocus="this.style.outline='none';">
@@ -626,51 +500,20 @@
         });
     </script>
 
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
-
-            $(".js-example-basic-multiple").select2({
-                placeholder: "Pilih Tindakan",
-            }).on('change', function(e) {
-                if ($(this).val() && $(this).val().length) {
-                    $(this).next('.select2-container')
-                        .find('li.select2-search--inline input.select2-search__field').attr('placeholder',
-                            'Pilih Tindakan');
-                }
-            });
+            $('.js-example-name').select2();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-room').select2();
         });
     </script>
 
 
-    <script>
-        $(document).ready(function() {
-
-            $(".js-example-room").select2({
-                placeholder: "Pilih"
-            }).on('change', function(e) {
-                if ($(this).val() && $(this).val().length) {
-                    $(this).next('.select2-container')
-                        .find('li.select2-search--inline input.select2-search__field').attr('placeholder',
-                            'Pilih Kamar');
-                }
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $(".js-example-name").select2({
-                placeholder: "Pilih Pasien"
-            }).on('change', function(e) {
-                if ($(this).val() && $(this).val().length) {
-                    $(this).next('.select2-container')
-                        .find('li.select2-search--inline input.select2-search__field').attr('placeholder',
-                            'Pilih');
-                }
-            });
-        });
-    </script>
     <script>
         $(document).ready(function() {
             // Mendapatkan nilai yang dipilih saat halaman pertama kali dimuat
@@ -725,7 +568,7 @@
                 selisihTahun--;
             }
 
-            return selisihTahun;
+            return selisihTahun + " Tahun";
         }
 
 
