@@ -25,7 +25,7 @@
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
                         <img src="{{ asset('/') }}assets/img/user.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
@@ -79,6 +79,11 @@
                 </a>
                 <ul id="tables-master" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
+                        <a href="{{ route('chairmain') }}">
+                            <i class="bi bi-circle"></i><span>Penanggung Jawab</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('patient') }}">
                             <i class="bi bi-circle"></i><span>Pasien</span>
                         </a>
@@ -128,19 +133,8 @@
     </aside>
 
     <main id="main" class="main">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <p><strong>Error:</strong> Terdapat kesalahan pada formulir.</p>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         @yield('content')
     </main>
-
 
 
 </body>

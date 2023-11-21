@@ -30,10 +30,12 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (Throwable $e) {
             //
+
             if ($e instanceof WebException) {
                 DB::rollBack();
                 return back()->withErrors($e->getMessage());
             }
+          
             // return back()->withErrors($e->getMessage()); 
         });
     }

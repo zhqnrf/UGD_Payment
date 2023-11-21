@@ -25,4 +25,5 @@
     <link href="{{ asset('/') }}assets/css/style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/toastr/css/toastr.min.css">
 </head>

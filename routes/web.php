@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ChairmainController;
 use App\Http\Controllers\MaintainController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UgdPaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +24,7 @@ Route::middleware(['auth.user'])->group(function () {
         return view('auth.forgot-password');
     })->name('forgotpassword');
 
-    Route::put('forgotpassword', [UserController::class , "updatePassword"])->name('forgotpassword-put');
+    Route::put('forgotpassword', [UserController::class, "updatePassword"])->name('forgotpassword-put');
 
     Route::get('dashboard', function () {
         return view('admin.dashboard');
@@ -34,9 +36,11 @@ Route::middleware(['auth.user'])->group(function () {
     })->name('statuspay');
 
 
-    Route::get('create/pay', function () {
-        return view('admin.add.a-pay');
-    })->name('a-pay');
+    Route::get('create/pay', [UgdPaymentController::class , "create"])->name('a-pay');
+
+    Route::get('edit/pay', function () {
+        return view('admin.edit.e-pay');
+    })->name('e-pay');
 
     Route::get('history', function () {
         return view('admin.history-pay');
@@ -86,5 +90,21 @@ Route::middleware(['auth.user'])->group(function () {
     Route::delete('room', [RoomController::class, "delete"])->name('room-delete');
 
 
+    Route::get('chairmain', [ChairmainController::class, "index"])->name('chairmain');
+    Route::post('create/chairmain', [ChairmainController::class, "store"])->name('chairmain-post');
+    Route::delete('chairmain', [ChairmainController::class, "delete"])->name('chairmain-post');
+
+
+
+    Route::get('edit/chairmain/{id}', [ChairmainController::class, "detail"])->name('e-chairmain');
+    Route::put('edit/chairmain/{id}', [ChairmainController::class, "update"])->name('chairmain-put');
+
+
+
+    Route::get('create/chairmain', function () {
+        return view('admin.add.a-chairman');
+    })->name('a-chairmain');
 
 });
+
+
