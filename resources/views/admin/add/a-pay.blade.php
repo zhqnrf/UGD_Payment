@@ -41,7 +41,8 @@
                                 <label for="inputText" class="col-sm-2 col-form-label">No Registrasi</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" value="{{ $registrationNumber }}"
-                                        placeholder="No Regestrasi" name="registration_number" readonly>
+                                        placeholder="No Regestrasi" name="registration_number" readonly
+                                        style="background-color:rgb(239, 238, 238)">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -60,7 +61,8 @@
                                 <label for="inputText" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" value="" readonly id="alamat"
-                                        placeholder="Alamat" name="patient[address]">
+                                        placeholder="Alamat" name="patient[address]"
+                                        style="background-color:rgb(239, 238, 238)">
                                 </div>
                             </div>
 
@@ -68,7 +70,7 @@
                                 <label for="inputText" class="col-sm-2 col-form-label">Umur</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" value="" readonly placeholder="Umur"
-                                        name="patient[age]" id="age">
+                                        name="patient[age]" id="age" style="background-color:rgb(239, 238, 238)">
                                 </div>
                             </div>
 
@@ -462,13 +464,18 @@
                             <hr class="m-0">
                             <div class="row">
                                 <div class="col-6">
-                                    <h5 class="card-title m-0 fw-bold">Total</h5>
+                                    <div class="btn btn-outline-dark  btn-sm mt-3 mb-3">
+                                        <h5 class=" mt-2 fw-bold">Cek Total</h5>
+                                    </div>
+
                                 </div>
+
+
                                 <div class="col-6">
-                                    <h5 class="card-title m-0" style="text-align: end">300000</h5>
+                                    <h5 class="mt-4" style="text-align: end">300000</h5>
                                 </div>
                             </div>
-
+                            <hr class="m-0">
 
                             <div class="col-12" style="text-align: end; margin-top: 20px">
                                 <button type="button" class="btn btn-secondary"><i
