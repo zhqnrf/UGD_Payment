@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class UgdPayment extends Model
 {
     use HasFactory;
+
+    protected $table = 'ugd_payment';
 }
