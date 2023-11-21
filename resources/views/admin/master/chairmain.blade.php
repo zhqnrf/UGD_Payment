@@ -74,7 +74,9 @@
                     <h5 class="modal-title">Yakin Menghapus ?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="" method="post">
+                <form action="{{ route('chairmain-delete', ['id'=>1]) }}" method="post">
+                    @csrf
+                    @method('delete')
                     <div class="modal-body">
                         <input type="text" id="id_chairmain" name="id" hidden>
                         <table class="table mb-0">
@@ -95,7 +97,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        <button type="button" class="btn btn-primary">Ya</button>
+                        <button type="submit" class="btn btn-primary">Ya</button>
                     </div>
                 </form>
             </div>

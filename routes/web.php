@@ -92,7 +92,7 @@ Route::middleware(['auth.user'])->group(function () {
 
     Route::get('chairmain', [ChairmainController::class, "index"])->name('chairmain');
     Route::post('create/chairmain', [ChairmainController::class, "store"])->name('chairmain-post');
-    Route::delete('chairmain', [ChairmainController::class, "delete"])->name('chairmain-post');
+    Route::delete('chairmain', [ChairmainController::class, "delete"])->name('chairmain-delete');
 
 
 
