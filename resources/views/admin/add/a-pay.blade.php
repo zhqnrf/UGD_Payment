@@ -35,7 +35,7 @@
                     <div class="card-body">
                         <h5 class="card-title m-0">Data Pasien</h5>
                         <hr class="m-0">
-                        <form method="post" action="{{ route('pay-post') }}" class="m-3">
+                        <form id="payment-add" method="post" action="{{ route('pay-post') }}" class="m-3">
                             @csrf
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">No Registrasi</label>
@@ -46,6 +46,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                             
                                 <div class="col-sm-10">
                                     <select class="js-example-name" style="width: 100%" name="patient[id]">
                                         @foreach ($patients as $item)
@@ -95,16 +96,16 @@
                                         name="days_treated" required>
                                 </div>
                             </div>
-
+                            <input type="text" name="status" value="belum_tercetak" class="status_payment" readonly
+                                hidden>
                             <h5 class="card-title m-0">Data Administrasi</h5>
                             <hr class="m-0 mb-3">
-
 
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
                                         <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="registration[checked]">
+                                            id="gridCheck1" name="registration[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Pendaftaran</label>
                                     </div>
                                 </div>
@@ -127,12 +128,12 @@
                                 <div class="row">
                                     <div class="form-check col-12">
                                         <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="room[checked]">
+                                            id="gridCheck1" name="room[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Kelas Kamar</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="js-example-room" style="width: 100%" name="room[id]">
+                                    <select class="js-example-room" style="width: 100%" name="room[room_id]">
                                         @foreach ($rooms as $item)
                                             <option value="{{ $item->id }}"><span
                                                     class="text-center">{{ $item->name }}</span></option>
@@ -465,7 +466,7 @@
                                     <h5 class="card-title m-0 fw-bold">Total</h5>
                                 </div>
                                 <div class="col-6">
-                                    <h5 class="card-title m-0" style="text-align: end">300000</h5>
+                                    <h5 class="card-title m-0" style="text-align: end" id="total_pay">300000</h5>
                                 </div>
                             </div>
 
@@ -474,9 +475,11 @@
                                 <button type="button" class="btn btn-secondary"><i
                                         class="bi bi-arrow-left-square-fill me-1"></i>
                                     Kembali</button>
-                                <button type="submit" class="btn btn-primary"><i class="bi bi-collection me-1"></i>
+                                <button type="submit" class="btn btn-primary btn-simpan"><i
+                                        class="bi bi-collection me-1"></i>
                                     Simpan</button>
-                                <button type="button" class="btn btn-warning"><i class="bi bi-printer me-1"></i>
+                                <button type="submit" class="btn btn-warning btn-cetak"><i
+                                        class="bi bi-printer me-1"></i>
                                     Cetak</button>
                             </div>
 
@@ -490,13 +493,26 @@
     </section>
 
 
-
-
-
-
-
     <script>
+        var total = 0;
+
         $(document).ready(function() {
+
+            updateTotalPay(0);
+
+            function updateTotalPay(subTotal) {
+                total += subTotal;
+                // Update the content of the 'total_pay' element
+                $('#total_pay').text(total);
+            }
+            $('.btn-cetak').on('click', function() {
+                $('.status_payment').val('tercetak');
+            });
+
+            $('.btn-simpan').on('click', function() {
+                $('.status_payment').val('belum_tercetak');
+            });
+
 
             // Event delegation for dynamically added elements
             $(document).on('input', '.item-lain .qty-other, .item-lain .price-other', function() {
@@ -506,8 +522,6 @@
 
                 // Menghitung jumlah dan mengatur nilai input "Jumlah"
                 var total = qty * price;
-                console.log(total);
-
                 // Set the total value for the specific item
                 $item.find('.total-other').val(total);
             });
@@ -563,6 +577,7 @@
         });
     </script>
 
+    {{-- select js --}}
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
@@ -579,8 +594,6 @@
 
     <script>
         $(document).ready(function() {
-
-
             // Mendapatkan nilai yang dipilih saat halaman pertama kali dimuat
             var selectedValue = $('.js-example-name').val();
 
@@ -596,16 +609,13 @@
                 // Mengatur nilai input "Alamat"
                 $('#alamat').val(selectedAddress);
                 $('#age').val(age);
+                
             }
 
             var selectedValue = $('.js-example-room').val();
             var price = getPrice(selectedValue);
             // Mengatur nilai input "Alamat"
             $('#room_price').val(price);
-
-
-
-
             // If you have additional conditions, you can add more checks here
         });
 

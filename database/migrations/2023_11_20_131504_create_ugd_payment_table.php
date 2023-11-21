@@ -13,13 +13,14 @@ return new class extends Migration {
     {
         Schema::create('ugd_payment', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('patient_id')->references('id')->on('patient')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('umur')->nullable();
             $table->timestamp('start_treating')->default(Carbon::now());
             $table->timestamp('end_treating')->default(Carbon::now());
             $table->integer('days_treated')->default(0);
             $table->string('registration_number');
             $table->enum('status', ['tercetak', 'belum_tercetak']);
+            $table->bigInteger('total')->default(0);
             $table->timestamps();
         });
     }

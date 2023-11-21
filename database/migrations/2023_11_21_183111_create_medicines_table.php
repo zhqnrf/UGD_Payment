@@ -10,14 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('others', function (Blueprint $table) {
+        Schema::create('medicines', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->nullable();
-            $table->foreignUuid('ugd_payment_id')->references('id')->on('ugd_payment')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('qty')->default(0);
             $table->bigInteger('price')->default(0);
             $table->bigInteger('sub_total')->default(0);
-            $table->string('unit');
+            $table->foreignUuid('ugd_payment_id')->references('id')->on('ugd_payment')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('others');
+        Schema::dropIfExists('medicines');
     }
 };
