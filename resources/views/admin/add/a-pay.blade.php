@@ -7,7 +7,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/zh-TW.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet"
@@ -16,9 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
     <style>
         .select2-selection {
-
             font-size: 15px;
-
             border: solid 1px #dee2e6 !important;
             padding-left: 4px;
         }
@@ -153,6 +150,7 @@
             </ol>
         </nav>
     </div>
+
 
     <section class="section">
         <div class="row">
@@ -453,8 +451,8 @@
                                                         value="{{ $item->unit }}" readonly>
                                                 </div>
                                                 <div class="col-sm-3 mb-3">
-                                                    <input type="number" class="form-control total"
-                                                        placeholder="Jumlah" value="0">
+                                                    <input type="number" class="form-control total" placeholder="Jumlah"
+                                                        value="0">
                                                 </div>
                                             </div>
                                         @endforeach
@@ -475,10 +473,12 @@
                                     <input type="number" class="form-control qty-medicines" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control price-medicines" placeholder="Harga" value="5000">
+                                    <input type="number" class="form-control price-medicines" placeholder="Harga"
+                                        value="5000">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control total-medicines" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-medicines" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -495,10 +495,12 @@
                                     <input type="number" class="form-control qty-medical-devices" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control price-medical-devices" placeholder="Harga" value="5000">
+                                    <input type="number" class="form-control price-medical-devices" placeholder="Harga"
+                                        value="5000">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control total-medical-devices" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-medical-devices" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -531,7 +533,8 @@
                                                     value="">
                                             </div>
                                             <div class="col-sm-3 mb-3">
-                                                <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                                <input type="number" class="form-control" placeholder="Jumlah"
+                                                    value="0">
                                             </div>
                                             <div class="col-sm-1 mb-3 mt-2">
                                                 <i class="bi bi-x-circle remove-item text-danger"></i>
@@ -772,7 +775,7 @@
             $('.total-medicines').val(total);
         });
     </script>
-     <script>
+    <script>
         // Menangkap perubahan pada elemen input "Σ" dan "Harga"
         $('.qty-medical-devices, .price-medical-devices').on('input', function() {
             var qty = $('.qty-medical-devices').val();
