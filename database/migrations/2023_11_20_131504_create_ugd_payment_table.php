@@ -18,7 +18,8 @@ return new class extends Migration {
             $table->timestamp('start_treating')->default(Carbon::now());
             $table->timestamp('end_treating')->default(Carbon::now());
             $table->integer('days_treated')->default(0);
-            $table->bigInteger('registration');
+            $table->string('registration_number');
+            $table->enum('status', ['tercetak', 'belum_tercetak']);
             $table->timestamps();
         });
     }

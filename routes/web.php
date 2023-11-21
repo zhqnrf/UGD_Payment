@@ -37,6 +37,8 @@ Route::middleware(['auth.user'])->group(function () {
 
 
     Route::get('create/pay', [UgdPaymentController::class , "create"])->name('a-pay');
+    Route::post('create/pay', [UgdPaymentController::class , "store"])->name('pay-post');
+
 
     Route::get('edit/pay', function () {
         return view('admin.edit.e-pay');
