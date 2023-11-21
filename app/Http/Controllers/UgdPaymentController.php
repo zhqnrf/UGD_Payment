@@ -29,4 +29,8 @@ class UgdPaymentController extends Controller
         return view('admin.add.a-pay', ['patients' => $patients, 'rooms' => $rooms , 'maintains' => $maintain]);
     }
 
+    public function store(Request $request){
+        dd($request->all());
+    }
+
 }

@@ -162,20 +162,20 @@
                     <div class="card-body">
                         <h5 class="card-title m-0">Data Pasien</h5>
                         <hr class="m-0">
-                        <form class="m-3">
-
+                        <form method="post" action="{{ route('pay-post', ) }}" class="m-3">
+                            @csrf
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">No Registrasi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" value="" disabled=""
-                                        placeholder="No Regestrasi">
+                                    <input type="text" class="form-control" value="123213" 
+                                        placeholder="No Regestrasi" name="registration_number" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <select class="js-example-name" style="width: 100%" name="name_id">
+                                    <select class="js-example-name" style="width: 100%" name="patient[name]">
                                         @foreach ($patients as $item)
                                             <option value="{{ $item->id }}"><span
                                                     class="text-center">{{ $item->name }}</span></option>
@@ -189,16 +189,16 @@
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" value="" disabled="" id="alamat"
-                                        placeholder="Alamat">
+                                    <input type="text" class="form-control" value="" readonly id="alamat"
+                                        placeholder="Alamat" name="patient[address]">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Umur</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" value="" disabled=""
-                                        placeholder="Umur" name="age" id="age">
+                                    <input type="text" class="form-control" value="" readonly
+                                        placeholder="Umur" name="patient[age]" id="age">
                                 </div>
                             </div>
 
@@ -206,20 +206,20 @@
                                 <div class="col-6 ">
                                     <label for="inputText" class="col-sm-12 col-form-label">Tanggal Mulai Rawat</label>
                                     <div class="col-sm-12">
-                                        <input type="date" class="form-control" placeholder="Tanggal Mulai Rawat">
+                                        <input type="date" class="form-control" placeholder="Tanggal Mulai Rawat" name="start">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label for="inputText" class="col-sm-12 col-form-label">Tanggal Akhir Rawat</label>
                                     <div class="col-sm-12">
-                                        <input type="date" class="form-control" placeholder="Tanggal Akhir Rawat">
+                                        <input type="date" class="form-control" placeholder="Tanggal Akhir Rawat" name="end">
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Jumlah Hari Rawat</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="Masukkan Jumlah Hari Rawat">
+                                    <input type="number" class="form-control" placeholder="Masukkan Jumlah Hari Rawat" name="days_treated">
                                 </div>
                             </div>
 
@@ -236,15 +236,15 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control qty-register" placeholder="Σ">
+                                    <input type="number" class="form-control qty-register" placeholder="Σ" name="registration[qty]">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control price-register" placeholder="Harga"
+                                    <input type="number" class="form-control price-register" placeholder="registration[price]"
                                         value="5000">
                                 </div>
 
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control total-register" placeholder="Jumlah"
+                                    <input type="number" class="form-control total-register" placeholder="registration[sub_total]"
                                         value="0">
                                 </div>
                             </div>
@@ -259,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="js-example-room" style="width: 100%" name="room_id">
+                                    <select class="js-example-room" style="width: 100%" name="room[id]">
                                         @foreach ($rooms as $item)
                                             <option value="{{ $item->id }}"><span
                                                     class="text-center">{{ $item->name }}</span></option>
@@ -268,15 +268,15 @@
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <input type="number" class="form-control qty-room" placeholder="Σ">
+                                    <input type="number" class="form-control qty-room" placeholder="Σ" name="room[qty]">
                                 </div>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control price-room" placeholder="Harga"
-                                        name="room_price" id="room_price">
+                                        name="room[price]" id="room_price">
                                 </div>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control total-room" placeholder="Jumlah"
-                                        value="0">
+                                        value="0" name="room[sub_total]">
                                 </div>
                             </div>
 
@@ -284,21 +284,23 @@
                                 <div class="row">
                                     <div class="form-check col-12">
                                         <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1">
+                                            id="gridCheck1" name="iv[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Pemasangan Infus</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Σ">
+                                    <input type="number" name="iv[qty]" class="form-control qty-iv" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Harga" value="10000">
+                                    <input type="number" name="iv[price]" class="form-control prive-iv" placeholder="Harga"
+                                        value="10000">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Satuan" value="kali">
+                                    <input type="text" name="iv[unit]" class="form-control" placeholder="Satuan" value="/kali">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                    <input type="number" name="iv[sub_total]" class="form-control total-iv" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -311,16 +313,18 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Σ">
+                                    <input type="number" class="form-control qty-doctor" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Harga" value="10000">
+                                    <input type="number" class="form-control price-doctor" placeholder="Harga"
+                                        value="10000">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Satuan" value="hari">
+                                    <input type="text" class="form-control" placeholder="Satuan" value="/hari">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-doctor" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -333,16 +337,18 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Σ">
+                                    <input type="number" class="form-control qty-care" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Harga" value="10000">
+                                    <input type="number" class="form-control price-care" placeholder="Harga"
+                                        value="10000">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Satuan" value="kali">
+                                    <input type="text" class="form-control" placeholder="Satuan" value="/kali">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-care" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -356,14 +362,14 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control qty-iv" placeholder="Σ">
+                                    <input type="number" class="form-control qty-ugd" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control prive-iv" placeholder="Harga"
+                                    <input type="number" class="form-control price-ugd" placeholder="Harga"
                                         value="10000">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control total-iv " placeholder="Jumlah"
+                                    <input type="number" class="form-control total-ugd" placeholder="Jumlah"
                                         value="0">
                                 </div>
                             </div>
@@ -378,13 +384,15 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Σ">
+                                    <input type="number" class="form-control qty-nutrition" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Harga" value="5000">
+                                    <input type="number" class="form-control price-nutrition" placeholder="Harga"
+                                        value="5000">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-nutrition" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -398,13 +406,14 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Σ">
+                                    <input type="number" class="form-control qty-ambulance" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Harga">
+                                    <input type="number" class="form-control price-ambulance" placeholder="Harga">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-ambulance" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
 
@@ -418,13 +427,14 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Σ">
+                                    <input type="number" class="form-control qty-lab" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Harga">
+                                    <input type="number" class="form-control price-lab" placeholder="Harga">
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control" placeholder="Jumlah" value="0">
+                                    <input type="number" class="form-control total-lab" placeholder="Jumlah"
+                                        value="0">
                                 </div>
                             </div>
                             <div class="row mb-0">
@@ -517,7 +527,7 @@
                                     <label for="inputText" class="col-sm-12 col-form-label fw-bold"
                                         style="font-size: 20px">Lain - Lain</label>
                                     <div class="row m-3 mt-0 me-5" style="background-color:white; border-radius: 5px">
-                                        <div class="row" id="item-lain">
+                                        <div class="row" hidden id="item-lain">
                                             <div class="row">
                                                 <div class="form-check col-12">
                                                     <input class="form-check-input" style="margin-top: 12px;"
@@ -529,19 +539,19 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-2 mb-3">
-                                                <input type="number" class="form-control" placeholder="Σ">
+                                                <input type="number" class="form-control qty-other" placeholder="Σ">
                                             </div>
                                             <div class="col-sm-3 mb-3">
-                                                <input type="number" class="form-control" placeholder="Harga"
-                                                    value="">
+                                                <input type="number" class="form-control price-other"
+                                                    placeholder="Harga" value="">
                                             </div>
                                             <div class="col-sm-3 mb-3">
-                                                <input type="text" class="form-control" placeholder="Satuan"
-                                                    value="">
+                                                <input type="text" class="form-control unit-other"
+                                                    placeholder="Satuan" value="/Kali">
                                             </div>
                                             <div class="col-sm-3 mb-3">
-                                                <input type="number" class="form-control" placeholder="Jumlah"
-                                                    value="0">
+                                                <input type="number" class="form-control total-other"
+                                                    placeholder="Jumlah" value="0">
                                             </div>
                                             <div class="col-sm-1 mb-3 mt-2">
                                                 <i class="bi bi-x-circle remove-item text-danger"></i>
@@ -595,12 +605,55 @@
 
     <script>
         $(document).ready(function() {
+
+            // Event delegation for dynamically added elements
+            $(document).on('input', '.item-lain .qty-other, .item-lain .price-other', function() {
+                var $item = $(this).closest('.item-lain');
+                var qty = $item.find('.qty-other').val();
+                var price = $item.find('.price-other').val();
+
+                // Menghitung jumlah dan mengatur nilai input "Jumlah"
+                var total = qty * price;
+                console.log(total);
+
+                // Set the total value for the specific item
+                $item.find('.total-other').val(total);
+            });
+
             $("#tambahLain").click(function() {
                 var newItemLain = $("#item-lain").clone();
+                var unitOther = newItemLain.find('.unit-other').val();
                 newItemLain.find('input').val('');
+                newItemLain.find('.unit-other').val(unitOther);
                 newItemLain.find('.remove-item').show();
+                newItemLain.addClass('item-lain'); // Add a class to identify the cloned items
+                newItemLain.removeAttr('hidden');
                 $("#item-lain").after(newItemLain);
+
+                // Rebind the input event after cloning
+                bindInputEvent();
             });
+
+            // Function to bind input event for cloned items
+            function bindInputEvent() {
+                $('.item-lain .qty-other, .item-lain .price-other').off('input'); // Unbind previous event
+                $(document).on('input', '.item-lain .qty-other, .item-lain .price-other', function() {
+                    var $item = $(this).closest('.item-lain');
+                    var qty = $item.find('.qty-other').val();
+                    var price = $item.find('.price-other').val();
+
+                    // Menghitung jumlah dan mengatur nilai input "Jumlah"
+                    var total = qty * price;
+                    console.log(total);
+
+                    // Set the total value for the specific item
+                    $item.find('.total-other').val(total);
+                });
+            }
+
+            // Initial binding
+            bindInputEvent();
+
 
 
             $(document).on('click', '.remove-item', function() {
@@ -690,6 +743,15 @@
                 $('#alamat').val(selectedAddress);
                 $('#age').val(age);
             }
+
+            var selectedValue = $('.js-example-room').val();
+            var price = getPrice(selectedValue);
+            // Mengatur nilai input "Alamat"
+            $('#room_price').val(price);
+
+
+
+
             // If you have additional conditions, you can add more checks here
         });
 
@@ -851,5 +913,75 @@
             console.log(total);
             $('.total-iv').val(total);
         });
+
+        $('.qty-doctor, .price-doctor').on('input', function() {
+            var qty = $('.qty-doctor').val();
+            var price = $('.price-doctor').val();
+
+            // Menghitung jumlah dan mengatur nilai input "Jumlah"
+            var total = qty * price;
+            console.log(total);
+            $('.total-doctor').val(total);
+        });
+
+        $('.qty-care, .price-care').on('input', function() {
+            var qty = $('.qty-care').val();
+            var price = $('.price-care').val();
+
+            // Menghitung jumlah dan mengatur nilai input "Jumlah"
+            var total = qty * price;
+            console.log(total);
+            $('.total-care').val(total);
+        });
+
+        $('.qty-ugd, .price-ugd').on('input', function() {
+            var qty = $('.qty-ugd').val();
+            var price = $('.price-ugd').val();
+
+            // Menghitung jumlah dan mengatur nilai input "Jumlah"
+            var total = qty * price;
+            console.log(total);
+            $('.total-ugd').val(total);
+        });
+
+        $('.qty-nutrition, .price-nutrition').on('input', function() {
+            var qty = $('.qty-nutrition').val();
+            var price = $('.price-nutrition').val();
+
+            // Menghitung jumlah dan mengatur nilai input "Jumlah"
+            var total = qty * price;
+            console.log(total);
+            $('.total-nutrition').val(total);
+        });
+
+        $('.qty-ambulance, .price-ambulance').on('input', function() {
+            var qty = $('.qty-ambulance').val();
+            var price = $('.price-ambulance').val();
+
+            // Menghitung jumlah dan mengatur nilai input "Jumlah"
+            var total = qty * price;
+            console.log(total);
+            $('.total-ambulance').val(total);
+        });
+
+        $('.qty-lab, .price-lab').on('input', function() {
+            var qty = $('.qty-lab').val();
+            var price = $('.price-lab').val();
+
+            // Menghitung jumlah dan mengatur nilai input "Jumlah"
+            var total = qty * price;
+            console.log(total);
+            $('.total-lab').val(total);
+        });
+
+        // $('.qty-other, .price-other').on('input', function() {
+        //     var qty = $('.qty-other').val();
+        //     var price = $('.price-other').val();
+
+        //     // Menghitung jumlah dan mengatur nilai input "Jumlah"
+        //     var total = qty * price;
+        //     console.log(total);
+        //     $('.total-other').val(total);
+        // });
     </script>
 @endsection
