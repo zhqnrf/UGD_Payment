@@ -18,4 +18,14 @@ class RoomDetail extends Model
         'ugd_payment_id',
         'sub_total',
     ];
+
+    public function payment()
+    {
+        return $this->belongsTo(UgdPayment::class , "ugd_payment_id");
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class , "room_id");
+    }
 }

@@ -14,7 +14,11 @@ class VisiteDoctor extends Model
     protected $fillable = [
         'qty',
         'sub_total',
-        'price' ,
+        'price',
         'ugd_payment_id'
     ];
+    public function payment()
+    {
+        return $this->belongsTo(UgdPayment::class, "ugd_payment_id");
+    }
 }

@@ -34,41 +34,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Masino</td>
-                                    <td>10.09.30</td>
-                                    <td><span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>
-                                            Tercetak</span></td>
-                                    <td>
-
-                                        <button type="button" class="btn btn-warning mb-3"><i class="bi bi-printer"></i>
-                                            Cetak</button>
-                                        <a href="{{ route('e-pay') }}"><button type="button"
-                                                class="btn btn-primary mb-3"><i class="bi bi-pencil-square"></i>
-                                                Edit</button></a>
-                                        <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
-                                            data-bs-target="#delete-modal"><i class="bi bi-trash2"></i>Hapus</button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Masinem</td>
-                                    <td>10.010.30</td>
-                                    <td><span class="badge bg-danger"><i class="bi bi-exclamation-octagon me-1"></i>
+                                @foreach ($data as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item['patient']['name'] }}</td>
+                                        <td>{{ $item['registration_number'] }}</td>
+                                        <td>
+                                            @if ($item['status'] == 'tercetak')
+                                                <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>
+                                                    Tercetak</span>
+                                        </td>
+                                    @else
+                                        <span class="badge bg-danger"><i class="bi bi-check-circle me-1"></i>
                                             Belum Tercetak</span></td>
-                                    <td>
+                                @endif
+                                <td>
 
-                                        <button type="button" class="btn btn-warning mb-3"><i class="bi bi-printer"></i>
-                                            Cetak</button>
-                                        <a href="{{ route('e-pay') }}"><button type="button"
-                                                class="btn btn-primary mb-3"><i class="bi bi-pencil-square"></i>
-                                                Edit</button></a>
-                                        <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
-                                            data-bs-target="#delete-modal"><i class="bi bi-trash2"></i>Hapus</button>
-                                    </td>
+                                    <button type="button" class="btn btn-warning mb-3"><i class="bi bi-printer"></i>
+                                        Cetak</button>
+                                    <a href="{{ route('e-pay') }}"><button type="button" class="btn btn-primary mb-3"><i
+                                                class="bi bi-pencil-square"></i>
+                                            Edit</button></a>
+                                    <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
+                                        data-bs-target="#delete-modal"><i class="bi bi-trash2"></i>Hapus</button>
+                                </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
 

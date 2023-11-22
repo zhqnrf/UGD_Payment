@@ -190,10 +190,14 @@ class UgdPaymentController extends Controller
         }
     }
 
-    
+    public function index()
+    {
+        $data = UgdPayment::with('patient', 'others', 'ambulance', 'care', 'iv', 'laboratorium', 'medicines', 'device', 'nutrition', 'registration', 'roomDetail', 'ugdAction')->orderBy('created_at' , 'asc')->get()->toArray();
+        return view('admin.status', ['data' => $data]);
+    }
 
 
-    private  function validateInput($array)
+    private function validateInput($array)
     {
         if (isset($array['check'])) {
             unset($array['check']);

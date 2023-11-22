@@ -18,4 +18,9 @@ class Registration extends Model
         'sub_total',
         'ugd_payment_id'
     ];
+
+    public function payment()
+    {
+        return $this->belongsTo(UgdPayment::class , "ugd_payment_id");
+    }
 }

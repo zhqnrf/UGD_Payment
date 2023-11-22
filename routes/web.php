@@ -31,9 +31,7 @@ Route::middleware(['auth.user'])->group(function () {
     })->name('dashboard');
 
 
-    Route::get('statuspay', function () {
-        return view('admin.status');
-    })->name('statuspay');
+    Route::get('statuspay', [UgdPaymentController::class , 'index'])->name('statuspay');
 
 
     Route::get('create/pay', [UgdPaymentController::class , "create"])->name('a-pay');

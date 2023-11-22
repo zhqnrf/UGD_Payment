@@ -20,4 +20,9 @@ class Others extends Model
         'unit'
     ];
 
+    public function payment()
+    {
+        return $this->belongsTo(UgdPayment::class , "ugd_payment_id");
+    }
+
 }

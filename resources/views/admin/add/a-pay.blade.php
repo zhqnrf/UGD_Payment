@@ -47,7 +47,7 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
-                             
+
                                 <div class="col-sm-10">
                                     <select class="js-example-name" style="width: 100%" name="patient[id]">
                                         @foreach ($patients as $item)
@@ -106,8 +106,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="registration[check]">
+                                        <input class="form-check-input check-register" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="registration[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Pendaftaran</label>
                                     </div>
                                 </div>
@@ -129,8 +129,8 @@
                             <div class="row mb-3">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="room[check]">
+                                        <input class="form-check-input check-room" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="room[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Kelas Kamar</label>
                                     </div>
                                 </div>
@@ -160,8 +160,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="iv[check]">
+                                        <input class="form-check-input check-iv" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="iv[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Pemasangan Infus</label>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                                     <input type="number" name="iv[qty]" class="form-control qty-iv" placeholder="Σ">
                                 </div>
                                 <div class="col-sm-3 mb-3">
-                                    <input type="number" name="iv[price]" class="form-control prive-iv"
+                                    <input type="number" name="iv[price]" class="form-control price-iv"
                                         placeholder="Harga" value="10000">
                                 </div>
                                 <div class="col-sm-3 mb-3">
@@ -185,8 +185,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="doctor[check]">
+                                        <input class="form-check-input check-doctor" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="doctor[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Visite Dokter</label>
                                     </div>
                                 </div>
@@ -211,8 +211,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="care[check]">
+                                        <input class="form-check-input check-care" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="care[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Asuhan Keperawatan</label>
                                     </div>
                                 </div>
@@ -238,8 +238,8 @@
                             <div class="row tindakan">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="ugd[check]">
+                                        <input class="form-check-input check-ugd" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="ugd[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Tindakan UGD</label>
                                     </div>
                                 </div>
@@ -260,8 +260,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="nutrition[check]">
+                                        <input class="form-check-input check-nutrition" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="nutrition[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Konsultasi Gizi</label>
                                     </div>
                                 </div>
@@ -283,8 +283,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="ambulance[check]">
+                                        <input class="form-check-input check-ambulance" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="ambulance[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Ambulance</label>
                                     </div>
                                 </div>
@@ -306,8 +306,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="lab[check]">
+                                        <input class="form-check-input check-lab" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="lab[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Laboratorium`</label>
                                     </div>
                                 </div>
@@ -327,7 +327,8 @@
                                 <div class="row">
                                     <label for="inputText" class="col-sm-12 col-form-label fw-bold "
                                         style="font-size: 20px">Tindakan</label>
-                                    <div class="row m-3 mt-0 me-5" style="background-color:#b8cff3; border-radius: 5px">
+                                    <div class="row m-3 mt-0 me-5 data-tindakan"
+                                        style="background-color:#b8cff3; border-radius: 5px">
 
                                         @foreach ($maintains as $key => $item)
                                             <div class="row">
@@ -376,8 +377,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="medicines[check]">
+                                        <input class="form-check-input check-medicines" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="medicines[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Pemakaian Obat </label>
                                     </div>
                                 </div>
@@ -398,8 +399,8 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="form-check col-12">
-                                        <input class="form-check-input" style="margin-top: 12px;" type="checkbox"
-                                            id="gridCheck1" name="medical_device[check]">
+                                        <input class="form-check-input check-medical-devices" style="margin-top: 12px;"
+                                            type="checkbox" id="gridCheck1" name="medical_device[check]">
                                         <label for="inputText" class="col-sm-12 col-form-label">Pemakaian Alat
                                             Kesehatan</label>
                                     </div>
@@ -465,15 +466,16 @@
                             <hr class="m-0">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="btn btn-outline-dark  btn-sm mt-3 mb-3">
+                                    <button type="button" id="btn-cek-total"
+                                        class="btn btn-outline-dark  btn-sm mt-3 mb-3">
                                         <h5 class=" mt-2 fw-bold">Cek Total</h5>
-                                    </div>
-
+                                    </button>
                                 </div>
 
 
                                 <div class="col-6">
-                                    <h5 class="card-title m-0" style="text-align: end" id="total_pay">300000</h5>
+                                    <input type="text" id="total_pay_input" name="total" value="0" hidden>
+                                    <h5 class="card-title m-0" style="text-align: end" id="total_pay">Rp 0,00</h5>
                                 </div>
                             </div>
                             <hr class="m-0">
@@ -505,12 +507,111 @@
 
         $(document).ready(function() {
 
-            updateTotalPay(0);
+            // Attach click event listener to the button
+            $('#btn-cek-total').on('click', function() {
+                // Call the updateTotalPay function
+                var totalInputs = $(".data-tindakan .total");
+                var checkboxes = $(".data-tindakan .maintance_check");
+                var otherTotalInputs = $(".item-lain .total-other");
 
-            function updateTotalPay(subTotal) {
-                total += subTotal;
-                // Update the content of the 'total_pay' element
-                $('#total_pay').text(total);
+                // Create an array to store the checked status for each checkbox
+                var checkedStatusArray = [];
+                var totalInputChecked = 0;
+
+                // Loop through each checkbox
+                for (var i = 0; i < checkboxes.length; i++) {
+                    // Check if the checkbox is checked
+                    var isChecked = $(checkboxes[i]).prop('checked');
+
+                    // Store the checked status in the array
+                    checkedStatusArray.push(isChecked);
+
+                    // Perform additional actions based on the checked status
+                    if (isChecked) {
+
+                        // Do something if the checkbox is checked
+                        totalInputChecked += parseFloat(totalInputs[i].value);
+                    } else {
+                        // Do something if the checkbox is not checked
+                        console.log("Checkbox is not checked:", $(checkboxes[i]).attr('id'));
+                    }
+                }
+
+                var otherTotal = 0;
+                for (let index = 0; index < otherTotalInputs.length; index++) {
+                    const element = otherTotalInputs[index];
+                    otherTotal += parseFloat(element.value);
+                }
+
+                totalInputChecked += otherTotal;
+                // Create an array to store the values
+
+
+                updateTotalPay(totalInputChecked);
+            });
+
+
+            function updateTotalPay(subTotalMaintaince) {
+                var total = 0;
+                var valuesArray = [];
+                valuesArray.push(subTotalMaintaince);
+
+                // Use a ternary operator to conditionally parse the value
+                var totalRegisterValue = $('.check-register').prop('checked') ? parseFloat($('.total-register')
+                    .val()) || 0 : 0;
+
+                // Now, totalRegisterValue contains the parsed value or 0 if the checkbox is not checked
+
+
+                var totalRoomValue = $('.check-room').prop('checked') ? parseFloat($('.total-room')
+                    .val()) || 0 : 0;
+                var totalIVValue = $('.check-iv').prop('checked') ? parseFloat($('.total-iv')
+                    .val()) || 0 : 0;
+                var totalDoctorValue = $('.check-doctor').prop('checked') ? parseFloat($('.total-doctor')
+                    .val()) || 0 : 0;
+                var totalCareValue = $('.check-care').prop('checked') ? parseFloat($('.total-care')
+                    .val()) || 0 : 0;
+                var totalUgdValue = $('.check-ugd').prop('checked') ? parseFloat($('.total-ugd')
+                    .val()) || 0 : 0;
+                var totalNutritionValue = $('.check-nutrition').prop('checked') ? parseFloat($('.total-nutrition')
+                    .val()) || 0 : 0;
+                var totalAmbulanceValue = $('.check-ambulance').prop('checked') ? parseFloat($('.total-ambulance')
+                    .val()) || 0 : 0;
+                var totalMedicalDevice = $('.check-medical-devices').prop('checked') ? parseFloat($('.total-medical-devices')
+                    .val()) || 0 : 0;
+                var totalMedicines =$('.check-medicines').prop('checked') ? parseFloat($('.total-medicines')
+                    .val()) || 0 : 0;
+
+                var totalLab = $('.check-lab').prop('checked') ? parseFloat($('.total-lab')
+                    .val()) || 0 : 0;
+
+                // Add the values to the array
+                valuesArray.push(totalRegisterValue);
+                valuesArray.push(totalRoomValue);
+                valuesArray.push(totalIVValue);
+                valuesArray.push(totalDoctorValue);
+                valuesArray.push(totalCareValue);
+                valuesArray.push(totalUgdValue);
+                valuesArray.push(totalAmbulanceValue);
+                valuesArray.push(totalNutritionValue);
+                valuesArray.push(totalMedicalDevice);
+                valuesArray.push(totalMedicines);
+
+
+
+                valuesArray.push(totalLab);
+                for (let i = 0; i < valuesArray.length; i++) {
+                    const element = valuesArray[i];
+                    console.log(element);
+                    total += parseFloat(element);
+                }
+                console.log(total);
+                var formattedTotal = total.toLocaleString('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR'
+                });
+                $('#total_pay').text(formattedTotal);
+                $('#total_pay_input').val(total);
             }
             $('.btn-cetak').on('click', function() {
                 $('.status_payment').val('tercetak');
@@ -616,7 +717,7 @@
                 // Mengatur nilai input "Alamat"
                 $('#alamat').val(selectedAddress);
                 $('#age').val(age);
-                
+
             }
 
             var selectedValue = $('.js-example-room').val();
