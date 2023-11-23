@@ -76,14 +76,14 @@
                             </div>
 
                             <div class="row mb-3 mt-0">
-                                <div class="col-6 ">
+                                <div class="col-6 " id="tanggalmulai">
                                     <label for="inputText" class="col-sm-12 col-form-label">Tanggal Mulai Rawat</label>
                                     <div class="col-sm-12">
                                         <input type="date" class="form-control" placeholder="Tanggal Mulai Rawat"
                                             name="start" required>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" id="tanggalakhir">
                                     <label for="inputText" class="col-sm-12 col-form-label">Tanggal Akhir Rawat</label>
                                     <div class="col-sm-12">
                                         <input type="date" class="form-control" placeholder="Tanggal Akhir Rawat"
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row mb-3" id="jumlahhari">
                                 <label for="inputText" class="col-sm-2 col-form-label">Jumlah Hari Rawat</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" placeholder="Masukkan Jumlah Hari Rawat"
@@ -121,8 +121,9 @@
                                 </div>
 
                                 <div class="col-sm-4 mb-3">
-                                    <input type="number" class="form-control total-register" placeholder="Total"
-                                        name="registration[sub_total]" value="0">
+                                    <input type="number" class="form-control total-register" placeholder="Jumlah"
+                                        name="registration[sub_total]" value="0"
+                                        style="background-color:rgb(239, 238, 238)" readonly>
                                 </div>
                             </div>
 
@@ -153,7 +154,8 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control total-room" placeholder="Jumlah"
-                                        value="0" name="room[sub_total]">
+                                        value="0" name="room[sub_total]"style="background-color:rgb(239, 238, 238)"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -178,7 +180,8 @@
                                 </div>
                                 <div class="col-sm-3 mb-3">
                                     <input type="number" name="iv[sub_total]" class="form-control total-iv"
-                                        placeholder="Jumlah" value="0">
+                                        placeholder="Jumlah" value="0" style="background-color:rgb(239, 238, 238)"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -204,7 +207,8 @@
                                 </div>
                                 <div class="col-sm-3 mb-3">
                                     <input type="number" class="form-control total-doctor" placeholder="Jumlah"
-                                        value="0" name="doctor[sub_total]">
+                                        value="0" name="doctor[sub_total]"
+                                        style="background-color:rgb(239, 238, 238)" readonly>
                                 </div>
                             </div>
 
@@ -230,7 +234,8 @@
                                 </div>
                                 <div class="col-sm-3 mb-3">
                                     <input type="number" class="form-control total-care" placeholder="Jumlah"
-                                        value="0" name="care[sub_total]">
+                                        value="0" name="care[sub_total]" style="background-color:rgb(239, 238, 238)"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -252,7 +257,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <input type="number" class="form-control total-ugd" placeholder="Jumlah"
-                                        value="0" name="ugd[sub_total]">
+                                        value="0" name="ugd[sub_total]" style="background-color:rgb(239, 238, 238)"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -275,7 +281,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <input type="number" class="form-control total-nutrition" placeholder="Jumlah"
-                                        value="0" name="nutrition[sub_total]">
+                                        value="0" name="nutrition[sub_total]"
+                                        style="background-color:rgb(239, 238, 238)" readonly>
                                 </div>
                             </div>
 
@@ -298,7 +305,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <input type="number" class="form-control total-ambulance" placeholder="Jumlah"
-                                        value="0" name="ambulance[sub_total]">
+                                        value="0" name="ambulance[sub_total]"
+                                        style="background-color:rgb(239, 238, 238)" readonly>
                                 </div>
                             </div>
 
@@ -320,7 +328,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <input type="number" class="form-control total-lab" placeholder="Jumlah"
-                                        value="0" name="lab[sub_total]">
+                                        value="0" name="lab[sub_total]" style="background-color:rgb(239, 238, 238)"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="row mb-0">
@@ -365,7 +374,8 @@
                                                 <div class="col-sm-3 mb-3">
                                                     <input type="number" class="form-control total" placeholder="Jumlah"
                                                         value="0" name="maintance[{{ $key }}][sub_total]"
-                                                        id="maintance_total_{{ $key }}">
+                                                        id="maintance_total_{{ $key }}"
+                                                        style="background-color:rgb(239, 238, 238)" readonly>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -392,7 +402,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <input type="number" class="form-control total-medicines"
-                                        name="medicines[sub_total]" placeholder="Jumlah" value="0">
+                                        name="medicines[sub_total]" placeholder="Jumlah" value="0"
+                                        style="background-color:rgb(239, 238, 238)" readonly>
                                 </div>
                             </div>
 
@@ -415,7 +426,8 @@
                                 </div>
                                 <div class="col-sm-4 mb-3">
                                     <input type="number" name="medical_device[sub_total]"
-                                        class="form-control total-medical-devices" placeholder="Jumlah" value="0">
+                                        class="form-control total-medical-devices" placeholder="Jumlah" value="0"
+                                        style="background-color:rgb(239, 238, 238)" readonly>
                                 </div>
                             </div>
 
@@ -447,7 +459,8 @@
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" class="form-control total-other"
-                                                    placeholder="Jumlah" value="0">
+                                                    placeholder="Jumlah" value="0"
+                                                    style="background-color:rgb(239, 238, 238)" readonly>
                                             </div>
                                             <div class="col-sm-1 mb-3 mt-2">
                                                 <i class="bi bi-x-circle remove-item text-danger"></i>
@@ -475,7 +488,8 @@
 
                                 <div class="col-6">
                                     <input type="text" id="total_pay_input" name="total" value="0" hidden>
-                                    <h5 class="card-title m-0" style="text-align: end" id="total_pay">Rp 0,00</h5>
+                                    <h5 class="card-title m-0" style="text-align: end" id="total_pay" readonly>Rp 0,00
+                                    </h5>
                                 </div>
                             </div>
                             <hr class="m-0">
@@ -577,9 +591,10 @@
                     .val()) || 0 : 0;
                 var totalAmbulanceValue = $('.check-ambulance').prop('checked') ? parseFloat($('.total-ambulance')
                     .val()) || 0 : 0;
-                var totalMedicalDevice = $('.check-medical-devices').prop('checked') ? parseFloat($('.total-medical-devices')
+                var totalMedicalDevice = $('.check-medical-devices').prop('checked') ? parseFloat($(
+                        '.total-medical-devices')
                     .val()) || 0 : 0;
-                var totalMedicines =$('.check-medicines').prop('checked') ? parseFloat($('.total-medicines')
+                var totalMedicines = $('.check-medicines').prop('checked') ? parseFloat($('.total-medicines')
                     .val()) || 0 : 0;
 
                 var totalLab = $('.check-lab').prop('checked') ? parseFloat($('.total-lab')
@@ -944,6 +959,37 @@
             var total = qty * price;
             console.log(total);
             $('.total-lab').val(total);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the date input elements
+            var startDateInput = document.getElementById("tanggalmulai").querySelector("input[type=date]");
+            var endDateInput = document.getElementById("tanggalakhir").querySelector("input[type=date]");
+            var daysTreatedInput = document.getElementById("jumlahhari").querySelector("input[type=number]");
+
+            // Add event listeners to the date inputs
+            startDateInput.addEventListener("input", updateDaysTreated);
+            endDateInput.addEventListener("input", updateDaysTreated);
+
+            function updateDaysTreated() {
+                var startDate = new Date(startDateInput.value);
+                var endDate = new Date(endDateInput.value);
+
+                // Check if both dates are valid
+                if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
+                    // Calculate the difference in days
+                    var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                    // Update the "Jumlah Hari Rawat" input field
+                    daysTreatedInput.value = diffDays;
+                } else {
+                    // If either date is invalid, clear the "Jumlah Hari Rawat" input field
+                    daysTreatedInput.value = "";
+                }
+            }
         });
     </script>
 @endsection
